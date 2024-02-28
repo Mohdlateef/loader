@@ -22,19 +22,34 @@ btn.addEventListener("click",Clickme);
 
 
 
-function Clickme(){
+// function Clickme(){
+//     let loader=document.createElement("p");
+//     let i=9;
+//     let id=setInterval(() => {
+//      loader.innerText=i;
+// i--;
+//     },1000);
+//     // loader.innerText="loader";
+//     root.append(loader);
+//     p1().then((res)=>{
+//     // loader.remove();
+//     loader.innerText=res.data;
+//     clearInterval(id);
+//     console.log(res)
+//     })
+// }
+async function Clickme(){
+    root.innerHTML=''
     let loader=document.createElement("p");
-    let i=9;
-    let id=setInterval(() => {
-     loader.innerText=i;
-i--;
-    },1000);
-    // loader.innerText="loader";
-    root.append(loader);
-    p1().then((res)=>{
-    // loader.remove();
-    loader.innerText=res.data;
+        let i=9;
+        let id=setInterval(() => {
+         loader.innerText=i;
+    i--;
+        },1000);
+        root.append(loader);
+    let data=await p1().then((res)=>res.data)
+    console.log(data);
+    root.innerText=data;
+    console.log("heloo")
     clearInterval(id);
-    console.log(res)
-    })
 }
